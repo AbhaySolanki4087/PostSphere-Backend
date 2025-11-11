@@ -1,0 +1,17 @@
+# Node.js
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Environment files
+.env
+.env.local
+
+# Uploads / build
+uploads/
+dist/
+build/
+
+# System files
+.DS_Store
+Thumbs.db
