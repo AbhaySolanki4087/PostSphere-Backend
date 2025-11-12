@@ -15,20 +15,21 @@ const app = express();
 
 // ✅ CORS setup for local and Vercel frontend
 const allowedOrigins = [
-    'http://localhost:3000', // local dev
-    'https://post-sphere-frontend25.vercel.app' // deployed frontend
+  'http://localhost:3000', // local dev
+  'https://post-sphere-frontend25.vercel.app' // your deployed frontend
 ];
 
 app.use(cors({
-    origin: function(origin, callback) {
-        if (!origin) return callback(null, true); // allow Postman or same-origin
-        if (allowedOrigins.indexOf(origin) === -1) {
-            return callback(new Error('CORS not allowed'), false);
-        }
-        return callback(null, true);
-    },
-    credentials: true
+  origin: function(origin, callback) {
+    if (!origin) return callback(null, true); // allow Postman or same-origin
+    if (allowedOrigins.indexOf(origin) === -1) {
+      return callback(new Error('CORS not allowed'), false);
+    }
+    return callback(null, true);
+  },
+  credentials: true // allow cookies/session
 }));
+
 
 // Parse JSON and cookies
 app.use(express.json());
